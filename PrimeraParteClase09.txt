@@ -1,0 +1,177 @@
+
+::::::::::::::::::::::::::::::1ra Parte de la Clase::::::::::::::::::::::::::::::::::::::::::::::::::::
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="p-6 bg-slate-100">
+    <button id="btn" class="bg-blue-600 text-white px-4 py-2 rounded mb-4">Actualizar Lista</button>
+    <ul id="lista" class="space-y-2"></ul>
+
+
+
+    <script>
+           const datos = ["Manzana", "Pera", "sandia"];
+           const contenedor = document.getElementById("lista");
+           const boton = document.getElementById("btn");
+
+           function render(items){
+            contenedor.innerHTML = "";
+            items.forEach(fruta => {
+                const li =  document.createElement("li");
+                li.className = "bg-white p-2 rounded shadow"
+                li.textContent = fruta;
+                contenedor.appendChild(li);
+
+                
+
+            });
+
+           }
+           render(datos);
+
+           boton.addEventListener("click", () => {
+            const nuevosDatos = ["Fresa", "Mango", "Pina", "Uva"];
+            render(nuevosDatos);
+           });
+
+    </script>
+</body>
+</html>
+
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: 2da Parete de la Clase:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="p-6">
+    <div id="contenedor"></div>
+    
+
+
+    <script>
+       const cajaDestino = document.getElementById("contenedor");
+       const tarjeta = document.createElement("div");
+       tarjeta.className = "bg-white p-4 rounded-xl shadow-md border max-w-sm"
+
+       tarjeta.innerHTML = `
+            <h2 class="text-xl font-bold text-blue-600">Tarjeta Dinamica</h2>
+            <p class="text-gray-600 mt-1">Contenido creado con innerHTML.</p>
+             `;
+
+             cajaDestino.appendChild(tarjeta);
+
+    </script>
+</body>
+</html>
+::::::::::::::::::::::::::::::::::3era Parte de la Clase::::::::::::::::::::::::::::::::::::::::::::
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="p-6">
+    <div id="contenedor"></div>
+    
+
+
+    <script>
+         const pokemon = {
+            nombre: "pikachu",
+            tipo:"electrico",
+            nivel:"25",
+        
+        };
+
+        console.log("Nombre: ", pokemon.nombre);
+        console.log("Tipo: ", pokemon.tipo);
+
+        const {nombre, tipo, nivel} = pokemon;
+
+        console.log(`!Hola!, Soy ${nombre}, soy de tipo ${tipo} y estoy en el nivel ${nivel}.`);
+    </script>
+</body>
+</html>
+
+::::::::::::::::::::::::::::::::::::::::::::::4ta Parte de la clase ::::::::::::::::::::::::::::::::::::::::
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="p-6">
+   <div id = "badges-container" class="flex gap-2"></div>
+    
+
+
+    <script>
+        const misTipos = ["fuego", "volador", "dragon"];
+       
+        const htmlBadges = misTipos.map(tipo => {
+            return `<span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm font-semibold">${tipo}</span>`;
+        }).join("");
+
+        document.getElementById("badges-container").innerHTML = htmlBadges;
+
+        const tiposExtra = [...misTipos, "agua"];
+
+        console.log("array expandido con spread:", tiposExtra);
+    </script>
+</body>
+</html>
+
+::::::::::::::::::::::::::::::::::::::::::5ta parte::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+// script.js
+const nombre = "pikachu";
+
+console.log("hola, " + nombre + "!");
+
+const b = 'hola, ${nombre}!';
+
+console.log(`hola, ${nombre}!`);
+
+//html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="p-6">
+  
+    
+
+
+    <script>
+      const pokemonIncompleto = {
+        nombre: "ditto",
+        imagen: null //no tiene imagen
+      };
+      const fotoSegura = pokemonIncompleto.imagen ?? "https://via.placeholder.com/96?text=Sin+Foto";
+
+    console.log("imagen Asignada",fotoSegura);
+       const ataque = pokemonIncompleto.estadisticas?.ataque ?? 50;
+       console.log("Puntos de ataque calculados de forma segura", ataque);
+    </script>
+</body>
+</html>
